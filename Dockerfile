@@ -1,10 +1,10 @@
 FROM openjdk:8-jre-alpine
 
 LABEL maintainer="jberrenberg"
-LABEL version="v6.0.0"
+LABEL version="v6.0.1"
 
 
-ADD https://downloads.sourceforge.net/project/davmail/davmail/6.0.0/davmail-6.0.0-3375.zip /tmp/davmail.zip
+ADD https://downloads.sourceforge.net/project/davmail/davmail/6.0.1/davmail-6.0.1-3390.zip /tmp/davmail.zip
 
 RUN adduser davmail -D && \
   mkdir /usr/local/davmail && \
