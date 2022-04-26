@@ -16,7 +16,7 @@ _setup_certificate() {
 }
 
 _main() {
-	setup_certificate
+	_setup_certificate
 	if [ "$(id -u)" = '0' ]; then
 		# then restart script as davmail user
 		exec gosu davmail "$BASH_SOURCE" "$@"
