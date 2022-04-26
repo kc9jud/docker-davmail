@@ -6,7 +6,10 @@ LABEL version="v6.0.1"
 
 ADD https://downloads.sourceforge.net/project/davmail/davmail/6.0.1/davmail-6.0.1-3390.zip /tmp/davmail.zip
 
+COPY ./docker-entrypoint.sh /docker-entrypoint.sh
+
 RUN adduser davmail -D && \
+  apk add --no-cache su-exec && \
   mkdir /usr/local/davmail && \
   unzip -q /tmp/davmail.zip -d /usr/local/davmail && \
   rm /tmp/davmail.zip
@@ -20,8 +23,6 @@ EXPOSE        1389
 EXPOSE        1110
 EXPOSE        1025
 WORKDIR       /usr/local/davmail
-
-COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["/usr/local/davmail/davmail", "/etc/davmail/davmail.properties"]
