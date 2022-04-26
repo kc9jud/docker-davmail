@@ -10,7 +10,7 @@ _is_sourced() {
 
 # setup SSL certificates
 _setup_certificate() {
-	if [ -r "${SSL_CERTIFICATE}" && -r "${SSL_CERTIFICATE_KEY}" ]; then
+	if [ -r "${SSL_CERTIFICATE}" ] && [ -r "${SSL_CERTIFICATE_KEY}" ]; then
 		openssl pkcs12 -export -in "${SSL_CERTIFICATE}" -inkey "${SSL_CERTIFICATE_KEY}" -out "/etc/davmail/certs.p12" -passout pass:"davmail"
 	fi
 }
@@ -19,7 +19,7 @@ _main() {
 	_setup_certificate
 	if [ "$(id -u)" = '0' ]; then
 		# then restart script as davmail user
-		su-exec davmail:1000 "$BASH_SOURCE" "$@"
+		/sbin/su-exec davmail:1000 "$BASH_SOURCE" "$@"
 	fi
 
 	exec "$@"
