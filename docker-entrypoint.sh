@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # check to see if this file is being run or sourced from another script
 _is_sourced() {
@@ -10,7 +10,7 @@ _is_sourced() {
 
 # setup SSL certificates
 _setup_certificate() {
-	if [[ -r "${SSL_CERTIFICATE}" && -r "${SSL_CERTIFICATE_KEY}" ]]; then
+	if [ -r "${SSL_CERTIFICATE}" && -r "${SSL_CERTIFICATE_KEY}" ]; then
 		openssl pkcs12 -export -in "${SSL_CERTIFICATE}" -inkey "${SSL_CERTIFICATE_KEY}" -out "/etc/davmail/certs.p12" -passout pass:"davmail"
 	fi
 }
