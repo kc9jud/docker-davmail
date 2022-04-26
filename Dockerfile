@@ -21,6 +21,7 @@ EXPOSE        1110
 EXPOSE        1025
 WORKDIR       /usr/local/davmail
 
-USER davmail
+COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 
+ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["/usr/local/davmail/davmail", "/etc/davmail/davmail.properties"]
