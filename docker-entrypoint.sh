@@ -23,6 +23,8 @@ _main() {
 		/sbin/su-exec davmail:1000 /docker-entrypoint.sh "$@"
 	fi
 
+
+	echo "Running command '$@'..."
 	exec "$@"
 }
 
