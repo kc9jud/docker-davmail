@@ -1,10 +1,10 @@
 FROM openjdk:8-jre-alpine
 
 LABEL maintainer="jberrenberg"
-LABEL version="v6.0.1"
+LABEL version="v6.1.0"
 
 
-ADD https://downloads.sourceforge.net/project/davmail/davmail/6.0.1/davmail-6.0.1-3390.zip /tmp/davmail.zip
+ADD https://downloads.sourceforge.net/project/davmail/davmail/6.1.0/davmail-6.1.0-3423.zip /tmp/davmail.zip
 
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 
