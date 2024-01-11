@@ -1,10 +1,10 @@
 FROM eclipse-temurin:19-jre-alpine
 
 LABEL maintainer="jberrenberg"
-LABEL version="v6.1.0"
+LABEL version="v6.2.1"
 
 
-ADD https://downloads.sourceforge.net/project/davmail/davmail/6.1.0/davmail-6.1.0-3423.zip /tmp/davmail.zip
+ADD https://downloads.sourceforge.net/project/davmail/davmail/6.2.1/davmail-6.2.1-3496.zip /tmp/davmail.zip
 
 COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 
